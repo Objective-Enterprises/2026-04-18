@@ -9,13 +9,13 @@ export const getAllSubreddits = async (req, res) => {
     const subreddits = await fetchAllSubreddits()
     if (subreddits.length === 0) {
       const output = { success: false, message: 'No subreddits found' }
-      res.status(404).json(output)
+      return res.status(404).json(output)
     }
     const output = { success: true, data: subreddits, message: 'Subreddits found' }
-    res.json(output)
+    return res.json(output)
   } catch (error) {
     const output = { success: false, message: 'Error finding subreddits' }
-    res.status(500).json(output)
+    return res.status(500).json(output)
   }
 };
 
@@ -44,13 +44,13 @@ export const createSubreddit = async (req, res) => {
         message: 'Name taken'
       })
     }
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       data: subreddit,
       message: "Subreddit created"
     })
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: 'Error creating subreddit'
     })
@@ -66,13 +66,13 @@ export const getSubredditWithThreads = async (req, res) => {
         message: 'Subreddit not found'
       })
     }
-    res.json({
+    return res.json({
       success: true,
       data: subreddit,
       message: 'Subreddit found'
     })
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Error getting subreddit"
     })
