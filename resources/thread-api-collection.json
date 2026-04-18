@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "7f8a9b2c-d4e5-4f6g-8h9i-0j1k2l3m4n5o",
+		"name": "Thread API",
+		"description": "Collection for testing Thread social media endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Threads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/threads",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Thread By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/threads/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threads",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "THREAD_ID_HERE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Thread",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Example Thread Title\",\n    \"content\": \"This is the content of the thread.\",\n    \"author\": \"USER_ID_HERE\",\n    \"subreddit\": \"SUBREDDIT_ID_HERE\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/threads",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Thread",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Thread Title\",\n    \"content\": \"Updated thread content.\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/threads/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threads",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "THREAD_ID_HERE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Thread",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/threads/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threads",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "THREAD_ID_HERE"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api"
+		}
+	]
+}
